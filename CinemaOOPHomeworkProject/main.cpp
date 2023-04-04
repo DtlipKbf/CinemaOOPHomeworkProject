@@ -7,6 +7,12 @@ public:
 	float ticket_price;	
 	int row;
 	int place;
+
+	string convert() {
+		string msg = name + " " + to_string(time) + " ";
+		msg += to_string(ticket_price) + " " + to_string(row) + " " + to_string(place);
+		return msg;
+	}
 };
 
 int main() {
