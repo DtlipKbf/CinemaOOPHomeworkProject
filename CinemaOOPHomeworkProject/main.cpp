@@ -13,6 +13,14 @@ public:
 		msg += to_string(ticket_price) + " " + to_string(row) + " " + to_string(place);
 		return msg;
 	}
+
+	void cancel() {
+		name = "no name";
+		time = 0;
+		ticket_price = 0;
+		row = 0;
+		place = 0;
+	}
 };
 
 int main() {
@@ -30,6 +38,9 @@ int main() {
 	cn2.row = 8;
 	cn2.place = 11;
 	
+	cout << cn1.convert << endl;
+
+
 	system("pause");
 	return 0;
 }
