@@ -8,6 +8,30 @@ public:
 	int row;
 	int place;
 
+	Cinema() {
+		name = "no name";
+		time = 0;
+		ticket_price = 0.0;
+		row = 1;
+		place = 1;
+	}
+
+	Cinema(string nm, int t) {
+		name = nm;
+		time = t;
+	}
+
+	Cinema(const Cinema &cn) {
+		name = cn.name;
+		time = cn.time;
+		ticket_price = cn.ticket_price;
+		row = cn.row;
+		place = cn.place;
+	}
+
+	~Cinema() {
+	}
+
 	string convert() {
 		string msg = name + " " + to_string(time) + " ";
 		msg += to_string(ticket_price) + " " + to_string(row) + " " + to_string(place);
@@ -38,8 +62,7 @@ int main() {
 	cn2.row = 8;
 	cn2.place = 11;
 	
-	cout << cn1.convert << endl;
-
+	cout << cn1.convert() << endl;
 
 	system("pause");
 	return 0;
