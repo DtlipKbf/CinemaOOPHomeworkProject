@@ -1,13 +1,15 @@
 #include "main.h"
 
 class Cinema {
-public:
+private:
 	string name;
 	int time;
-	float ticket_price;	
+	float ticket_price;
 	int row;
 	int place;
 
+
+public:
 	Cinema() {
 		name = "no name";
 		time = 0;
@@ -19,6 +21,14 @@ public:
 	Cinema(string nm, int t) {
 		name = nm;
 		time = t;
+	}
+
+	Cinema(string nm, int t, float tp, int r, int p) {
+		name = nm;
+		time = t;
+		ticket_price = tp;
+		row = r;
+		place = p;
 	}
 
 	Cinema(const Cinema &cn) {
@@ -48,19 +58,8 @@ public:
 };
 
 int main() {
-	Cinema cn1;
-	cn1.name = "Cat in boots 2";
-	cn1.time = 100;
-	cn1.ticket_price = 9.90;
-	cn1.row = 7;
-	cn1.place = 12;
-
-	Cinema cn2;
-	cn2.name = "Avatar: Path of Water";
-	cn2.time = 192;
-	cn2.ticket_price = 10.20;
-	cn2.row = 8;
-	cn2.place = 11;
+	Cinema cn1("Cat in boots 2" , 100, 9.90, 7, 12);	
+	Cinema cn2("Avatar: Path of Water", 192, 10.20, 8, 11);
 	
 	cout << cn1.convert() << endl;
 
