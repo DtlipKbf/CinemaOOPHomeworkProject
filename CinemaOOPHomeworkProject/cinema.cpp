@@ -4,8 +4,7 @@ Cinema::Cinema() {
 	name = "no name";
 	time = 0;
 	ticket_price = 0.0;
-	row = 1;
-	place = 1;
+	mark = 0.0;
 }
 
 Cinema::Cinema(string nm, int t) {
@@ -13,35 +12,62 @@ Cinema::Cinema(string nm, int t) {
 	time = t;
 }
 
-Cinema::Cinema(string nm, int t, float tp, int r, int p) {
+Cinema::Cinema(string nm, int t, float tp, float m) {
 	name = nm;
 	time = t;
 	ticket_price = tp;
-	row = r;
-	place = p;
+	mark = m;
 }
 
 Cinema::Cinema(const Cinema& cn) {
 	name = cn.name;
 	time = cn.time;
 	ticket_price = cn.ticket_price;
-	row = cn.row;
-	place = cn.place;
+	mark = cn.mark;
 }
 
 Cinema::~Cinema() {
 }
 
-string Cinema::convert() {
-	string msg = name + " " + to_string(time) + " ";
-	msg += to_string(ticket_price) + " " + to_string(row) + " " + to_string(place);
-	return msg;
+string Cinema::getName() {
+	return name;
+}
+void Cinema::setName(string nm) {
+	name = nm;
+}
+int Cinema::getTime() {
+	return time;
+}
+void Cinema::setTime(int t) {
+	if (t >= 0) {
+		time = t;
+	}
+}
+float Cinema::getTicketPrice() {
+	return ticket_price;
+}
+void Cinema::setTicketPrice(float tp) {
+	if (tp > 0) {
+		ticket_price = tp;
+	}
+}
+float Cinema::getMark() {
+	return mark;
+}
+void Cinema::setMark(float m) {
+	if (m > 0 && m <= 10) {
+		mark = m;
+	}
 }
 
+string Cinema::convert() {
+	string msg = name + " " + to_string(time) + " ";
+	msg += to_string(ticket_price) + " " + to_string(mark);
+	return msg;
+}
 void Cinema::cancel() {
 	name = "no name";
 	time = 0;
-	ticket_price = 0;
-	row = 0;
-	place = 0;
+	ticket_price = 0.0;
+	mark = 0.0;
 }
