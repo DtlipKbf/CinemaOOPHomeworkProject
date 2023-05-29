@@ -4,7 +4,7 @@
 class List {
 private:
 	Cinema* list;
-	int size;
+	static int size;
 	string name;
 public:
 	List();
